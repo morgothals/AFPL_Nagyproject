@@ -30,3 +30,8 @@ Egy reszponzív webalapú Plinko játék, amely lehetővé teszi a felhasználó
 - **Profil szerkesztése**.
 - **Játéktörténet megtekintése**.
 - **Vendég mód**: Játék lehetősége regisztráció nélkül, nyeremények mentése nélkül.
+
+## 5. Törvények
+
+- **GDPR**: Megfelelés az adatvédelmi előírásoknak.
+- **Szerencsejáték törvények**: Megfelelés a helyi szerencsejáték szabályozásoknak és engedélyeknek.
