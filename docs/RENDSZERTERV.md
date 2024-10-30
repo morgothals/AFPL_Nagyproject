@@ -206,3 +206,7 @@ Az alkalmazás a Laravel MVC architektúrát követi.
 ### 5. Szoftver architektúra
 
 Az alkalmazás MVC architektúrát követ, a Laravel keretrendszer struktúrájával. A front-end interaktív elemeihez JavaScript és HTML5 Canvas technológiát használunk az animációk megvalósításához.
+
+### 6. Adatspecifikációk/objektumspecifikációk
+
+Az adatok objektumorientált módon kerülnek kezelésre az Eloquent ORM segítségével, amely megkönnyíti az adatbázis műveleteket és a modellek közötti kapcsolatokat.
