@@ -103,3 +103,33 @@ Az online Plinko játék lehetőséget biztosít a felhasználóknak a játékra
 
 - **Szorzók**: A rekeszekhez tartozó szorzók előre meghatározottak a kockázati szint és sorok száma alapján.
 - **Nyeremény**: Nyeremény = Tét * Szorzó.
+
+## 6. Adatmodell
+
+### 6.1 Felhasználók
+
+| Oszlopnév  | Típus          | Leírás                    |
+|------------|----------------|---------------------------|
+| id         | INT (auto-incr)| Egyedi azonosító          |
+| username   | VARCHAR(255)   | Felhasználónév            |
+| email      | VARCHAR(255)   | Email cím (egyedi)        |
+| password   | VARCHAR(255)   | Jelszó (hash-elve)        |
+| balance    | DECIMAL(10,2)  | Felhasználó egyenlege     |
+| avatar     | VARCHAR(255)   | Profilkép URL             |
+| created_at | TIMESTAMP      | Létrehozás dátuma         |
+| updated_at | TIMESTAMP      | Módosítás dátuma          |
+
+### 6.2 Játékok
+
+| Oszlopnév   | Típus          | Leírás                     |
+|-------------|----------------|----------------------------|
+| id          | INT (auto-incr)| Egyedi azonosító           |
+| user_id     | INT            | Felhasználó azonosítója    |
+| bet_amount  | DECIMAL(10,2)  | Tét összege                |
+| risk_level  | ENUM           | Kockázati szint            |
+| rows        | INT            | Sorok száma                |
+| payout      | DECIMAL(10,2)  | Nyeremény összege          |
+| result_slot | INT            | Rekesz száma               |
+| played_at   | TIMESTAMP      | Játék időpontja            |
+| created_at  | TIMESTAMP      | Létrehozás dátuma          |
+| updated_at  | TIMESTAMP      | Módosítás dátuma           |
