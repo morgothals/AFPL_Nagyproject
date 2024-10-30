@@ -77,3 +77,12 @@ Az online Plinko játék lehetőséget biztosít a felhasználóknak a játékra
 
 - Játék lehetősége regisztráció nélkül.
 - Nyeremények és tétek nem kerülnek mentésre.
+
+## 4. Nem-funkcionális követelmények
+
+- **Reszponzív design** minden eszközön.
+- **Teljesítmény**: Gyors betöltés és gördülékeny működés.
+- **Biztonság**: Felhasználói adatok védelme.
+- **Skálázhatóság**: Növekvő felhasználói szám és tranzakciók kezelése.
+- **Felhasználóbarát felület**: Könnyű navigáció és használat.
+- **Megbízhatóság**: Stabil működés, hibamentes játékélmény.
