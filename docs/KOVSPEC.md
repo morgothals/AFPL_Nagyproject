@@ -38,4 +38,14 @@ Egy reszponzív webalapú Plinko játék, amely lehetővé teszi a felhasználó
 
 ## 6. Jelenlegi üzleti folyamatok modellje
 
-A játékosok különböző online kaszinó oldalakon játszanak, amelyek nem mindig nyújtanak biztonságos és megbízható szolgáltatást, vagy nem kínálják a Plinko játékot. Általában ezeket az oldalkat nem lehet regisztráció nélkül használni, ami korhatárhoz vagy lakóhely területéhez kötött.
+A játékosok különböző online kaszinó oldalakon játszanak, amelyek nem mindig nyújtanak biztonságos és megbízható szolgáltatást, vagy nem kínálják a Plinko játékot.
+Általában ezeket az oldalkat nem lehet regisztráció nélkül használni, ami korhatárhoz vagy lakóhely területéhez kötött.
+
+## 7. Igényelt üzleti folyamatok modellje
+
+- **Regisztráció és bejelentkezés**: A felhasználók létrehozhatják a fiókjukat és bejelentkezhetnek.
+- **Játék beállítása**: Tét összegének megadása, kockázati szint és sorok számának kiválasztása.
+- **Játék indítása**: Labda leejtése és nyeremény kiszámítása.
+- **Nyeremény jóváírása**: Nyeremények automatikus jóváírása a felhasználó egyenlegére.
+- **Ranglista megtekintése**: A legjobb játékosok megtekintése.
+- **Profil kezelése**: Felhasználói adatok szerkesztése.
