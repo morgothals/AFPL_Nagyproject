@@ -49,3 +49,5 @@ A játékosok különböző online kaszinó oldalakon játszanak, amelyek nem mi
 - **Nyeremény jóváírása**: Nyeremények automatikus jóváírása a felhasználó egyenlegére.
 - **Ranglista megtekintése**: A legjobb játékosok megtekintése.
 - **Profil kezelése**: Felhasználói adatok szerkesztése.
+
+## 8. Fogalomtár
