@@ -159,3 +159,12 @@ A játékosok különböző online kaszinó oldalakon játszanak, amelyek nem mi
 ### 8.2 Igényelt üzleti folyamatok modellje
 
 Egy megbízható, biztonságos és felhasználóbarát weboldal, ahol a felhasználók élvezhetik a Plinko játékot és versenghetnek a ranglistában.
+
+## 9. Fogalomtár
+
+- **Plinko tábla**: A játék felülete, amely egy piramis alakú, tüskékkel teli tábla.
+- **Labda**: A játékban használt elem, amelyet a játékos "leejt".
+- **Rekesz**: A tábla alján található mezők, amelyek meghatározzák a nyereményt.
+- **Tét**: A játékos által fogadott pénzösszeg.
+- **Szorzó**: A nyeremény kiszámításához használt érték, amely a rekeszhez tartozik.
+- **Kockázati szint**: A játék nehézségi szintje, amely befolyásolja a szorzókat és a nyerési esélyeket.
