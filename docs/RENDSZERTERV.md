@@ -153,3 +153,7 @@ A ranglistát a **Játékok** tábla adatai alapján számítjuk, a felhasznál�
 - **Profil oldal**: Felhasználói adatok megjelenítése és szerkesztése, egyenleg megtekintése.
 - **Ranglista oldal**: Legjobb játékosok listája nyeremények alapján.
 - **Játéktörténet oldal**: Korábbi játékok és nyeremények megtekintése.
+
+### 7. Adatszótár, logikai adatmodell
+
+Az adatszótár tartalmazza az adatbázis mezőit és azok jelentését, lásd az **Adatmodell** fejezetben.
