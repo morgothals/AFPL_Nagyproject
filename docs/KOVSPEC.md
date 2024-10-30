@@ -51,3 +51,9 @@ A játékosok különböző online kaszinó oldalakon játszanak, amelyek nem mi
 - **Profil kezelése**: Felhasználói adatok szerkesztése.
 
 ## 8. Fogalomtár
+
+- **Plinko**: Kaszinó játék, ahol a labdát leejtik egy piramis alakú, tüskékkel teli táblán, és a labda véletlenszerűen pattogva érkezik meg egy rekeszbe, amely meghatározza a nyereményt.
+- **Kockázati szint**: A játék nehézségi szintje, amely befolyásolja a nyeremények mértékét és esélyét.
+- **Sorok száma**: A tábla magassága, amely meghatározza a tüskék számát és a lehetséges útvonalak számát.
+- **Tét**: Az a pénzösszeg, amelyet a játékos a játékba helyez.
+- **Nyeremény**: A játékos által nyert pénzösszeg a tét és a szorzó alapján.
