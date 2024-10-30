@@ -35,3 +35,7 @@ Egy reszponzív webalapú Plinko játék, amely lehetővé teszi a felhasználó
 
 - **GDPR**: Megfelelés az adatvédelmi előírásoknak.
 - **Szerencsejáték törvények**: Megfelelés a helyi szerencsejáték szabályozásoknak és engedélyeknek.
+
+## 6. Jelenlegi üzleti folyamatok modellje
+
+A játékosok különböző online kaszinó oldalakon játszanak, amelyek nem mindig nyújtanak biztonságos és megbízható szolgáltatást, vagy nem kínálják a Plinko játékot. Általában ezeket az oldalkat nem lehet regisztráció nélkül használni, ami korhatárhoz vagy lakóhely területéhez kötött.
