@@ -19,3 +19,13 @@ A dokumentum a Plinko weboldal fejlesztésére vonatkozik, amelyet három fejles
 ### 2.1 Rendszer célja
 
 Az online Plinko játék lehetőséget biztosít a felhasználóknak a játékra, játék pénzes tétek elhelyezésére, nyeremények megszerzésére és versengésre a ranglistán, mindezt egy biztonságos és megbízható környezetben.
+
+### 2.2 Felhasználói esetek (Use-Case)
+
+- **Regisztráció és bejelentkezés**
+- **Játék beállítása és indítása**
+- **Nyeremény kiszámítása és jóváírása**
+- **Ranglista megtekintése**
+- **Profil szerkesztése**
+- **Játéktörténet megtekintése**
+- **Vendég módú játék**
