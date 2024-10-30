@@ -22,6 +22,44 @@ A weboldal egy online Plinko játékot valósít meg, amely a népszerű televí
 - **Nyeremények**
 - **Ranglisták**
 
+### 2. Követelmények
+
+#### 2.1 Funkcionális követelmények
+
+- Felhasználói regisztráció és bejelentkezés.
+- Plinko játék lejátszása animációval.
+- Különböző kockázati szintek (alacsony, közepes, magas) választása.
+- Sorok számának beállítása (8-16 sor).
+- Tét összegének megadása.
+- Nyeremények számítása és jóváírása.
+- Ranglista megjelenítése a legjobb játékosokkal.
+- Felhasználói profil megtekintése és szerkesztése.
+- Játéktörténet megtekintése.
+- Vendég módú játék lehetősége.
+
+#### 2.2 Nemfunkcionális követelmények
+
+- **Reszponzív design**: A weboldal mobil eszközökön is jól működik.
+- **Teljesítmény**: Gyors betöltési idő és zökkenőmentes játékélmény.
+- **Biztonság**: Biztonságos adatkezelés és tranzakciók.
+- **Skálázhatóság**: Növekvő felhasználói bázis és tranzakciók kezelésére alkalmas.
+
+| Funkció                           | Részletes leírás                                                                                                                                       |
+|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Regisztráció lap**              | A felhasználó megadja a felhasználónevét, email címét és jelszavát.                                                                                    |
+| **Bejelentkezés lap**             | A felhasználó bejelentkezik az email címével és jelszavával.                                                                                           |
+| **Plinko játék felület**          | A játékos beállítja a kockázati szintet, a sorok számát, a tét összegét, majd elindítja a játékot.                                                     |
+| **Kockázati szint választása**    | Három opció: alacsony, közepes, magas. A magasabb kockázat nagyobb nyereményt, de kisebb esélyt jelent.                                                |
+| **Sorok számának beállítása**     | A játékos 8 és 16 sor között választhat. Több sor nagyobb nyereményeket, de kisebb esélyt jelent.                                                       |
+| **Tét összegének megadása**       | A játékos megadja a fogadni kívánt összeget a megengedett minimum és maximum között.                                                                   |
+| **Nyeremény kiszámítása**         | A labda leesése után a rendszer kiszámítja a nyereményt a tét és a szorzó alapján.                                                                     |
+| **Pontszám mentése**              | A játék végeztével a rendszer elmenti a felhasználó nyereményét és frissíti az egyenlegét.                                                             |
+| **Ranglista megjelenítése**       | A legjobb játékosok listájának megjelenítése a nyeremények alapján.                                                                                    |
+| **Profil szerkesztése**           | A felhasználó módosíthatja a profilképét, felhasználónevét és jelszavát.                                                                               |
+| **Játéktörténet megtekintése**    | A felhasználó megtekintheti korábbi játékait és nyereményeit.                                                                                          |
+| **Vendég mód**                    | Regisztráció nélküli játék lehetősége, nyeremények mentése nélkül.                                                                                     |
+| **Adminisztrációs felület**       | Az adminisztrátor felhasználókat kezelhet, ellenőrizheti a játékokat és a tranzakciókat.                                                               |
+
 
 #### X.x Aktivitási diagramok
 
