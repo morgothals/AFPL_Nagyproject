@@ -166,3 +166,5 @@ Az adatfolyam a felhasználói interakcióktól indul, átmegy a vezérlőkön �
 
 A rendszer célja, hogy szórakoztató és izgalmas játékélményt nyújtson a felhasználóknak, lehetőséget adva a nyeremények megszerzésére és a versengésre, miközben modern webes technológiákat alkalmaz a legjobb
 felhasználói élmény érdekében.
+
+## Fizikai rendszerterv
