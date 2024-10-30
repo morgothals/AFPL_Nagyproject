@@ -145,3 +145,11 @@ A weboldal egy online Plinko játékot valósít meg, amely a népszerű televí
 #### 5.3 Ranglista
 
 A ranglistát a **Játékok** tábla adatai alapján számítjuk, a felhasználók összesített nyereménye szerint.
+
+### 6. Felhasználói felületek, menük
+
+- **Főoldal**: Bejelentkezési és regisztrációs lehetőség, játék indítása vendég módban.
+- **Játék felület**: Beállítások megadása (kockázati szint, sorok száma, tét), Plinko tábla megjelenítése, labda leejtése.
+- **Profil oldal**: Felhasználói adatok megjelenítése és szerkesztése, egyenleg megtekintése.
+- **Ranglista oldal**: Legjobb játékosok listája nyeremények alapján.
+- **Játéktörténet oldal**: Korábbi játékok és nyeremények megtekintése.
