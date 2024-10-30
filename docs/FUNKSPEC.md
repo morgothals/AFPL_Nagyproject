@@ -68,3 +68,7 @@ Az online Plinko játék lehetőséget biztosít a felhasználóknak a játékra
 - Felhasználói adatok és profilkép módosítása.
 - Jelszó megváltoztatása.
 - Egyenleg megtekintése.
+
+### 3.8 Játéktörténet
+
+- Korábbi játékok, tétek, nyeremények és játék paraméterek megtekintése.
