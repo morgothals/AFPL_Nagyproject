@@ -62,3 +62,9 @@ Az online Plinko játék lehetőséget biztosít a felhasználóknak a játékra
 
 - Legjobb játékosok megjelenítése a nyeremények alapján.
 - Szűrési lehetőségek: napi, heti, havi, összesített.
+
+### 3.7 Profil kezelése
+
+- Felhasználói adatok és profilkép módosítása.
+- Jelszó megváltoztatása.
+- Egyenleg megtekintése.
