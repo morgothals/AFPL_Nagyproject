@@ -197,3 +197,8 @@ Az alkalmazás a Laravel MVC architektúrát követi.
 - **Integrációs tesztek**: Teljes folyamatok tesztelése (pl. játék indítása, nyeremény jóváírása).
 - **Felhasználói tesztek**: Felület tesztelése különböző eszközökön és böngészőkben.
 - **Biztonsági tesztek**: Bejelentkezés, adatvédelem és tranzakciók tesztelése.
+
+### 4. Rendszerspecifikációk
+
+- **Fejlesztési környezet**: Laravel, PHP, MySQL/MariaDB, Node.js (front-end build eszközök).
+- **Futtatási környezet**: Webszerver PHP támogatással (Apache, Nginx), SSL tanúsítvánnyal a biztonságos kapcsolatokhoz.
