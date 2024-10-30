@@ -149,3 +149,5 @@ Az online Plinko játék lehetőséget biztosít a felhasználóknak a játékra
 - **Függőségkezelő**: Composer, NPM
 - **Szerver**: XAMPP, MAMP vagy Docker
 - **Egyéb**: Postman (API teszteléshez), PHPUnit (teszteléshez)
+
+## 8. Üzleti folyamatok modellje
