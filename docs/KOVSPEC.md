@@ -59,3 +59,18 @@ A játékosok különböző online kaszinó oldalakon játszanak, amelyek nem mi
 - **Nyeremény**: A játékos által nyert pénzösszeg a tét és a szorzó alapján.
 
 ## 9. Követelménylista
+
+| Funkció                         | Részletes leírás                                                                                         |
+|---------------------------------|----------------------------------------------------------------------------------------------------------|
+| **Regisztráció lap**            | Felhasználói fiók létrehozása felhasználónév, email és jelszó megadásával.                               |
+| **Bejelentkezés lap**           | Bejelentkezés a rendszerbe email és jelszó megadásával.                                                  |
+| **Játék beállítása**            | Tét összegének, kockázati szintnek és sorok számának megadása.                                           |
+| **Játék indítása**              | Labda leejtése és animáció megjelenítése.                                                                |
+| **Nyeremény kiszámítása**       | Nyeremény meghatározása a labda végső pozíciója és a szorzó alapján.                                     |
+| **Nyeremény jóváírása**         | Nyeremény automatikus hozzáadása a felhasználó egyenlegéhez.                                             |
+| **Ranglista megtekintése**      | Legjobb játékosok listájának megtekintése a nyeremények alapján.                                         |
+| **Profil szerkesztése**         | Felhasználói adatok és profilkép módosítása.                                                             |
+| **Játéktörténet megtekintése**  | Korábbi játékok, tétek és nyeremények megtekintése.                                                     |
+| **Vendég mód**                  | Játék lehetősége regisztráció nélkül, nyeremények mentése nélkül.                                        |
+| **Jelszó visszaállítás**        | Elfelejtett jelszó esetén email alapú visszaállítás.                                                     |
+| **Kilépés gomb**                | Kijelentkezés a fiókból.                                                                                 |
