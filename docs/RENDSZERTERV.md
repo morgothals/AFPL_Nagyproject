@@ -190,3 +190,10 @@ Az alkalmazás a Laravel MVC architektúrát követi.
 
 - **users** tábla: Felhasználói adatok és egyenleg tárolása.
 - **games** tábla: Játékok, tétek és nyeremények tárolása.
+
+### 3. Teszttervek
+
+- **Egységtesztek**: Modellek és vezérlők tesztelése.
+- **Integrációs tesztek**: Teljes folyamatok tesztelése (pl. játék indítása, nyeremény jóváírása).
+- **Felhasználói tesztek**: Felület tesztelése különböző eszközökön és böngészőkben.
+- **Biztonsági tesztek**: Bejelentkezés, adatvédelem és tranzakciók tesztelése.
