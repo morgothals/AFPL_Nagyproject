@@ -157,3 +157,7 @@ A ranglistát a **Játékok** tábla adatai alapján számítjuk, a felhasznál�
 ### 7. Adatszótár, logikai adatmodell
 
 Az adatszótár tartalmazza az adatbázis mezőit és azok jelentését, lásd az **Adatmodell** fejezetben.
+
+### 8. Adatfolyam diagramok
+
+Az adatfolyam a felhasználói interakcióktól indul, átmegy a vezérlőkön és modelleken, majd az adatbázison keresztül visszatér a felhasználói felületre.
