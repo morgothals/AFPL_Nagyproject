@@ -72,3 +72,8 @@ Az online Plinko játék lehetőséget biztosít a felhasználóknak a játékra
 ### 3.8 Játéktörténet
 
 - Korábbi játékok, tétek, nyeremények és játék paraméterek megtekintése.
+
+### 3.9 Vendég mód
+
+- Játék lehetősége regisztráció nélkül.
+- Nyeremények és tétek nem kerülnek mentésre.
