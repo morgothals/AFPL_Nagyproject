@@ -86,3 +86,20 @@ Az online Plinko játék lehetőséget biztosít a felhasználóknak a játékra
 - **Skálázhatóság**: Növekvő felhasználói szám és tranzakciók kezelése.
 - **Felhasználóbarát felület**: Könnyű navigáció és használat.
 - **Megbízhatóság**: Stabil működés, hibamentes játékélmény.
+
+## 5. Rendszer működése
+
+### 5.1 Játék folyamat
+
+1. A felhasználó bejelentkezik vagy vendég módban játszik.
+3. Beállítja a játék paramétereit: tét, kockázati szint, sorok száma.
+4. A "Játék indítása" gombra kattint.
+5. A labda leejtése és animáció megjelenítése.
+6. A labda megérkezik egy rekeszbe, nyeremény kiszámítása.
+7. Nyeremény jóváírása a felhasználó egyenlegére.
+8. Ranglista frissítése.
+
+### 5.2 Nyeremény számítása
+
+- **Szorzók**: A rekeszekhez tartozó szorzók előre meghatározottak a kockázati szint és sorok száma alapján.
+- **Nyeremény**: Nyeremény = Tét * Szorzó.
