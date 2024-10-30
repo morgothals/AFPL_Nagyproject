@@ -60,8 +60,22 @@ A weboldal egy online Plinko játékot valósít meg, amely a népszerű televí
 | **Vendég mód**                    | Regisztráció nélküli játék lehetősége, nyeremények mentése nélkül.                                                                                     |
 | **Adminisztrációs felület**       | Az adminisztrátor felhasználókat kezelhet, ellenőrizheti a játékokat és a tranzakciókat.                                                               |
 
+### 3. Feldolgozási folyamatok
 
-#### X.x Aktivitási diagramok
+#### 3.1 Használati esetek
+
+- **Regisztráció**: A felhasználó megadja az adatait, és létrehoz egy fiókot.
+- **Bejelentkezés**: A felhasználó bejelentkezik a rendszerbe.
+- **Játék beállítása**: A felhasználó kiválasztja a kockázati szintet, sorok számát és megadja a tét összegét.
+- **Játék indítása**: A felhasználó elindítja a Plinko játékot.
+- **Labda leejtése**: A rendszer szimulálja a labda mozgását és megjeleníti az animációt.
+- **Nyeremény kiszámítása**: A rendszer kiszámítja a nyereményt a tét és a szorzó alapján.
+- **Nyeremény jóváírása**: A rendszer frissíti a felhasználó egyenlegét.
+- **Ranglista megtekintése**: A felhasználó megtekinti a legjobb játékosok listáját.
+- **Profil szerkesztése**: A felhasználó módosítja a profilját.
+- **Játéktörténet megtekintése**: A felhasználó megtekinti korábbi játékait és nyereményeit.
+
+#### 3.2 Aktivitási diagramok
 
 **Játék folyamat**
 
@@ -75,7 +89,7 @@ A weboldal egy online Plinko játékot valósít meg, amely a népszerű televí
 [Felhasználó] --> [Bejelentkezés] --> [Profil oldal] --> [Adatok módosítása] --> [Mentés] --> [Visszaigazolás]
 ```
 
-#### X.x Szekvencia diagramok
+#### 3.3 Szekvencia diagramok
 
 **Játék indítása és nyeremény jóváírása**
 
