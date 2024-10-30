@@ -133,3 +133,6 @@ Az online Plinko játék lehetőséget biztosít a felhasználóknak a játékra
 | played_at   | TIMESTAMP      | Játék időpontja            |
 | created_at  | TIMESTAMP      | Létrehozás dátuma          |
 | updated_at  | TIMESTAMP      | Módosítás dátuma           |
+
+## 7. Megvalósítás
+
