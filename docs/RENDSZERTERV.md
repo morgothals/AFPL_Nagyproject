@@ -23,3 +23,12 @@
 5. A rendszer kiszámítja a nyereményt.
 6. A rendszer jóváírja a nyereményt a felhasználó egyenlegén.
 7. A rendszer frissíti a ranglistát.
+
+
+### 4. Funkcionális felépítés
+
+#### 4.1 Komponensek
+
+- **Front-end**: Blade sablonok, CSS (Bootstrap 5), JavaScript (pl. Vue.js vagy React), HTML5 Canvas az animációhoz.
+- **Back-end**: Laravel keretrendszer, vezérlők, modellek, útvonalak.
+- **Adatbázis**: MySQL vagy MariaDB.
