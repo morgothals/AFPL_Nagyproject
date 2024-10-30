@@ -57,3 +57,5 @@ A játékosok különböző online kaszinó oldalakon játszanak, amelyek nem mi
 - **Sorok száma**: A tábla magassága, amely meghatározza a tüskék számát és a lehetséges útvonalak számát.
 - **Tét**: Az a pénzösszeg, amelyet a játékos a játékba helyez.
 - **Nyeremény**: A játékos által nyert pénzösszeg a tét és a szorzó alapján.
+
+## 9. Követelménylista
