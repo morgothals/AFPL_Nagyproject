@@ -1,3 +1,28 @@
+# RENDSZERTERV.md
+
+## Logikai rendszerterv
+
+### 1. Üzleti folyamatok modellje
+
+#### 1.1 Üzleti domain modell
+
+A weboldal egy online Plinko játékot valósít meg, amely a népszerű televíziós műsor, a "The Price is Right" játékán alapul. A játék során a játékosok labdát dobnak le egy piramis alakú, tüskékkel teli táblán, és várják, hogy az melyik nyereményt tartalmazó rekeszbe esik. A labda gravitáció segítségével esik le, miközben a tüskékről lepattanva véletlenszerű útvonalat jár be. A játékos nyereménye attól függ, hogy a labda melyik rekeszbe érkezik.
+
+#### 1.2 Üzleti szereplők
+
+- **Regisztrált felhasználók**: Akik játszhatnak a Plinko játékkal, pénzt vagy pontokat nyerhetnek, megtekinthetik a ranglistát, és szerkeszthetik a profiljukat.
+- **Vendég felhasználók**: Akik regisztráció nélkül kipróbálhatják a játékot, de nyereményeiket nem menti a rendszer.
+- **Adminisztrátor**: Kezeli a felhasználókat, felügyeli a játékot, és karbantartja a rendszert.
+
+#### 1.3 Üzleti entitások
+
+- **Felhasználók**
+- **Játékok**
+- **Tétek**
+- **Nyeremények**
+- **Ranglisták**
+
+
 #### X.x Aktivitási diagramok
 
 **Játék folyamat**
