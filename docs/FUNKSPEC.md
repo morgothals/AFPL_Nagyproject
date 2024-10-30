@@ -170,3 +170,5 @@ Egy megbízható, biztonságos és felhasználóbarát weboldal, ahol a felhaszn
 - **Tét**: A játékos által fogadott pénzösszeg.
 - **Szorzó**: A nyeremény kiszámításához használt érték, amely a rekeszhez tartozik.
 - **Kockázati szint**: A játék nehézségi szintje, amely befolyásolja a szorzókat és a nyerési esélyeket.
+
+## 10. Követelménylista
