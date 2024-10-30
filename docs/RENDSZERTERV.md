@@ -210,3 +210,5 @@ Az alkalmazás MVC architektúrát követ, a Laravel keretrendszer struktúráj�
 ### 6. Adatspecifikációk/objektumspecifikációk
 
 Az adatok objektumorientált módon kerülnek kezelésre az Eloquent ORM segítségével, amely megkönnyíti az adatbázis műveleteket és a modellek közötti kapcsolatokat.
+
+### 7. Programspecifikációk
