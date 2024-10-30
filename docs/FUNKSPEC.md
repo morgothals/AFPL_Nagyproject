@@ -45,3 +45,20 @@ Az online Plinko játék lehetőséget biztosít a felhasználóknak a játékra
 - **Tét megadása**: Minimum és maximum tét összegének betartása.
 - **Kockázati szint kiválasztása**: Alacsony, közepes, magas.
 - **Sorok számának beállítása**: 8 és 16 között.
+
+### 3.4 Játék indítása és lejátszása
+
+- A labda leejtése a tábla tetején.
+- Animáció megjelenítése a labda mozgásáról.
+- A labda véletlenszerű útvonalat jár be a tüskék között.
+
+### 3.5 Nyeremény kiszámítása és jóváírása
+
+- A nyeremény a tét és a rekeszhez tartozó szorzó szorzata.
+- A szorzók a kockázati szint és a sorok száma alapján változnak.
+- Nyeremény automatikus jóváírása a felhasználó egyenlegére.
+
+### 3.6 Ranglista
+
+- Legjobb játékosok megjelenítése a nyeremények alapján.
+- Szűrési lehetőségek: napi, heti, havi, összesített.
