@@ -170,3 +170,18 @@ felhasználói élmény érdekében.
 ## Fizikai rendszerterv
 
 ### 1. Osztály tervek
+
+Az alkalmazás a Laravel MVC architektúrát követi.
+
+#### 1.1 Modellek
+
+- **User**: Felhasználói adatokat és egyenleget kezeli.
+- **Game**: Játék adatokat, téteket és nyereményeket kezeli.
+
+#### 1.2 Vezérlők
+
+- **AuthController**: Regisztráció és bejelentkezés.
+- **GameController**: Játék logika és játékhoz kapcsolódó műveletek.
+- **ProfileController**: Profil megtekintése és szerkesztése.
+- **LeaderboardController**: Ranglista megjelenítése.
+- **BalanceController**: Egyenleg kezelése (befizetések, kifizetések).
