@@ -202,3 +202,7 @@ Az alkalmazás a Laravel MVC architektúrát követi.
 
 - **Fejlesztési környezet**: Laravel, PHP, MySQL/MariaDB, Node.js (front-end build eszközök).
 - **Futtatási környezet**: Webszerver PHP támogatással (Apache, Nginx), SSL tanúsítvánnyal a biztonságos kapcsolatokhoz.
+
+### 5. Szoftver architektúra
+
+Az alkalmazás MVC architektúrát követ, a Laravel keretrendszer struktúrájával. A front-end interaktív elemeihez JavaScript és HTML5 Canvas technológiát használunk az animációk megvalósításához.
