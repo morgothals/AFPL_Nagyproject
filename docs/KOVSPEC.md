@@ -17,3 +17,16 @@ Egy reszponzív webalapú Plinko játék, amely lehetővé teszi a felhasználó
 - Nyeremények megszerzését a labda véletlenszerű mozgása alapján.
 - Ranglistán való versengést.
 - Profiljuk testreszabását.
+
+## 4. Funkcionális követelmények
+
+- **Felhasználói regisztráció és bejelentkezés**.
+- **Tét elhelyezése**: A felhasználó megadhatja a tét összegét a megengedett minimum és maximum között.
+- **Kockázati szint választása**: Alacsony, közepes vagy magas kockázati szint kiválasztása.
+- **Sorok számának beállítása**: 8 és 16 sor között.
+- **Játék indítása és labda leejtése**.
+- **Nyeremény kiszámítása és jóváírása**.
+- **Ranglista megjelenítése**.
+- **Profil szerkesztése**.
+- **Játéktörténet megtekintése**.
+- **Vendég mód**: Játék lehetősége regisztráció nélkül, nyeremények mentése nélkül.
