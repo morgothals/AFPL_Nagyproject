@@ -168,3 +168,5 @@ A rendszer célja, hogy szórakoztató és izgalmas játékélményt nyújtson a
 felhasználói élmény érdekében.
 
 ## Fizikai rendszerterv
+
+### 1. Osztály tervek
