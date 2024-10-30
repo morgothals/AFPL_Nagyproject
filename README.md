@@ -12,4 +12,4 @@
 - Borbás Péter (KS2OBU)
 
 ## Senior:
--Sipos Valentin Dominik (JPCM1W)
+- Sipos Valentin Dominik (JPCM1W)
