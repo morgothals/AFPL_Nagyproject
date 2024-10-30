@@ -172,3 +172,18 @@ Egy megbízható, biztonságos és felhasználóbarát weboldal, ahol a felhaszn
 - **Kockázati szint**: A játék nehézségi szintje, amely befolyásolja a szorzókat és a nyerési esélyeket.
 
 ## 10. Követelménylista
+
+| Funkció                         | Részletes leírás                                                                                         |
+|---------------------------------|----------------------------------------------------------------------------------------------------------|
+| **Regisztráció lap**            | Felhasználói fiók létrehozása.                                                                           |
+| **Bejelentkezés lap**           | Bejelentkezés a rendszerbe.                                                                              |
+| **Játék beállítása**            | Tét, kockázati szint és sorok számának megadása.                                                         |
+| **Játék indítása gomb**         | A játék elindítása.                                                                                      |
+| **Plinko tábla megjelenítése**  | Játékfelület és animáció megjelenítése.                                                                  |
+| **Labda leejtése**              | A labda mozgásának szimulációja a táblán.                                                                |
+| **Nyeremény megjelenítése**     | Az elért nyeremény megjelenítése a játék végén.                                                          |
+| **Nyeremény jóváírása**         | Nyeremény automatikus jóváírása az egyenlegre.                                                           |
+| **Ranglista megtekintése**      | A legjobb játékosok listájának megtekintése.                                                             |
+| **Profil szerkesztése**         | Felhasználói adatok és profilkép módosítása.                                                             |
+| **Játéktörténet megtekintése**  | Korábbi játékok és nyeremények megtekintése.                                                             |
+| **Kilépés gomb**                | Kijelentkezés a fiókból.                                                                                 |
