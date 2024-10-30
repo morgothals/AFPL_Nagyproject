@@ -136,3 +136,16 @@ Az online Plinko játék lehetőséget biztosít a felhasználóknak a játékra
 
 ## 7. Megvalósítás
 
+### 7.1 Használt Technológiák
+
+- **Backend**: PHP 8+, Laravel 10+
+- **Frontend**: HTML5, CSS3, Bootstrap 5, JavaScript, Vue.js vagy React, HTML5 Canvas
+- **Adatbázis**: MySQL vagy MariaDB
+- **Verziókezelés**: Git, GitHub
+
+### 7.2 Fejlesztői eszközök
+
+- **IDE**: Visual Studio Code vagy PHPStorm
+- **Függőségkezelő**: Composer, NPM
+- **Szerver**: XAMPP, MAMP vagy Docker
+- **Egyéb**: Postman (API teszteléshez), PHPUnit (teszteléshez)
