@@ -161,3 +161,8 @@ Az adatszótár tartalmazza az adatbázis mezőit és azok jelentését, lásd a
 ### 8. Adatfolyam diagramok
 
 Az adatfolyam a felhasználói interakcióktól indul, átmegy a vezérlőkön és modelleken, majd az adatbázison keresztül visszatér a felhasználói felületre.
+
+### 9. Rendszer célja
+
+A rendszer célja, hogy szórakoztató és izgalmas játékélményt nyújtson a felhasználóknak, lehetőséget adva a nyeremények megszerzésére és a versengésre, miközben modern webes technológiákat alkalmaz a legjobb
+felhasználói élmény érdekében.
