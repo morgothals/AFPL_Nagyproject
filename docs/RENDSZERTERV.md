@@ -212,3 +212,23 @@ Az alkalmazás MVC architektúrát követ, a Laravel keretrendszer struktúráj�
 Az adatok objektumorientált módon kerülnek kezelésre az Eloquent ORM segítségével, amely megkönnyíti az adatbázis műveleteket és a modellek közötti kapcsolatokat.
 
 ### 7. Programspecifikációk
+
+#### Modulvázak
+
+- **AuthController**
+  - `register()`: Felhasználó regisztrálása.
+  - `login()`: Felhasználó bejelentkezése.
+  - `logout()`: Kijelentkezés.
+- **GameController**
+  - `index()`: Játék felület megjelenítése.
+  - `play(Request $request)`: Játék indítása, paraméterek fogadása, játék logika végrehajtása.
+  - `calculatePayout()`: Nyeremény kiszámítása.
+- **ProfileController**
+  - `show()`: Profil megtekintése.
+  - `edit()`: Profil szerkesztése.
+  - `update(Request $request)`: Profil módosításainak mentése.
+- **LeaderboardController**
+  - `index()`: Ranglista megjelenítése.
+- **BalanceController**
+  - `deposit()`: Befizetés kezelése.
+  - `withdraw()`: Kifizetés kezelése.
