@@ -106,6 +106,8 @@ Az online Plinko játék lehetőséget biztosít a felhasználóknak a játékra
 
 ## 6. Adatmodell
 
+![Adatmodell ábra](../pic/adatmodell.png?raw=true "Adatmodell")
+
 ### 6.1 Felhasználók
 
 | Oszlopnév  | Típus          | Leírás                    |
