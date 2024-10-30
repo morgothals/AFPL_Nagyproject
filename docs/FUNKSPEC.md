@@ -29,3 +29,19 @@ Az online Plinko játék lehetőséget biztosít a felhasználóknak a játékra
 - **Profil szerkesztése**
 - **Játéktörténet megtekintése**
 - **Vendég módú játék**
+
+## 3. Funkcionális követelmények
+
+### 3.1 Regisztráció/Bejelentkezés
+
+- Felhasználói fiók létrehozása felhasználónév, email és jelszó megadásával.
+- Email cím egyediségének ellenőrzése.
+- Bejelentkezés után a felhasználó hozzáfér a teljes funkcionalitáshoz.
+- Jelszó visszaállítás email alapján.
+
+
+### 3.3 Játék beállítása
+
+- **Tét megadása**: Minimum és maximum tét összegének betartása.
+- **Kockázati szint kiválasztása**: Alacsony, közepes, magas.
+- **Sorok számának beállítása**: 8 és 16 között.
