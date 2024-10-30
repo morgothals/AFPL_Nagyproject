@@ -185,3 +185,8 @@ Az alkalmazás a Laravel MVC architektúrát követi.
 - **ProfileController**: Profil megtekintése és szerkesztése.
 - **LeaderboardController**: Ranglista megjelenítése.
 - **BalanceController**: Egyenleg kezelése (befizetések, kifizetések).
+
+### 2. Adatbázis terv
+
+- **users** tábla: Felhasználói adatok és egyenleg tárolása.
+- **games** tábla: Játékok, tétek és nyeremények tárolása.
