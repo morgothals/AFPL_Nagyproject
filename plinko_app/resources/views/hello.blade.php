@@ -11,6 +11,31 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body class="mx-4 bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Atix Söri</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Regisztráció</a>
+                        <a class="nav-link" href="{{ route('login') }}">Bejelentkezés</a>
+                        <a class="nav-link" href="{{ route('profile') }}">Profil megtekintése</a>
+                        <a class="nav-link" href="{{ route('startgame') }}">Játék indítása</a>
+                        <a class="nav-link" href="{{ route('toplist') }}">Ranglista</a>
+                        <a class="nav-link" href="{{ route('history') }}">A játék története</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn">Kijelentkezés</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="card mb-3">
         <div class="card-body" style="text-align: center;">
             <img src="kepek/sor.jpg" class="rounded img-fluid" alt="Beer" style="max-width: 80vmin">
@@ -20,5 +45,6 @@
                 </small></p>
         </div>
     </div>
+
 </body>
 </html>
