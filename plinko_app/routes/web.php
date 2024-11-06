@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PlinkoController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,6 +16,10 @@ Route::get('/home', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('/plinko', function () {
+    return Inertia::render('Plinko');
+})->name('plinko');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -51,6 +56,7 @@ Route::get('/toplista', function () {
 Route::get('/tortenet', function () {
     return redirect()->away('/history');
 })->name('history');
+
 
 
 require __DIR__.'/auth.php';
