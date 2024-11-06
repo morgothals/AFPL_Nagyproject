@@ -31,9 +31,31 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//új útvonal
+Route::get('/register', function () {
+    return redirect()->away('/register');
+})->name('register');
 
+Route::get('/login', function () {
+    return redirect()->away('/login');
+})->name('login');
 
+//játék indítása oldal
+Route::get('/stargame', function () {
+    return redirect()->away('/plinko');
+})->name('startgame');
 
+Route::get('/profil', function () {
+    return redirect()->away('/profile');
+})->name('profile');
+
+Route::get('/toplista', function () {
+    return redirect()->away('/toplist');
+})->name('toplist');
+
+Route::get('/tortenet', function () {
+    return redirect()->away('/history');
+})->name('history');
 
 
 
