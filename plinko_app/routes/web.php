@@ -8,6 +8,10 @@ use Inertia\Inertia;
 
 Route::get('/', function () { return view('hello');});
 
+Route::get('/history', function () { return view('history');});
+
+Route::get('/toplist', function () { return view('toplist');});
+
 Route::get('/home', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
