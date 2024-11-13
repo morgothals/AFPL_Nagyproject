@@ -24,11 +24,11 @@
                 <ul class="navbar-nav ms-auto">
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('register') }}">Regisztráció</a>
+                            <a class="nav-link" href="{{ route('login') }}">Bejelentkezés</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Bejelentkezés</a>
+                            <a class="nav-link active" href="{{ route('register') }}">Regisztráció</a>
                         </li>
                     @endguest
 
@@ -44,6 +44,9 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('startgame') }}">Játék indítása</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('profile') }}">Profilom</a>
                         </li>
                         <li class="nav-item">
                             <form method="POST" action="{{ route('logout') }}" class="d-inline">
