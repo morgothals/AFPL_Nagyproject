@@ -75,7 +75,7 @@ export default {
     },
       initPlinko() {
 
-    
+
       // Inicializáljuk a Matter.js motort és a renderelést
       const { Engine, Render, World, Bodies, Events } = Matter;
 
