@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PlinkoController;
+use App\Http\Controllers\TopListController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -10,7 +11,7 @@ Route::get('/', function () { return view('hello');});
 
 Route::get('/history', function () { return view('history');});
 
-Route::get('/toplist', function () { return view('toplist');});
+Route::get('/toplist', [TopListController::class, 'index']);
 
 Route::get('/home', function () {
     return Inertia::render('Welcome', [
