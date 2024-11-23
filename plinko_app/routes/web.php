@@ -1,19 +1,18 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PlinkoController;
 use App\Http\Controllers\TopListController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () { return view('hello');});
+
 
 Route::get('/history', function () { return view('history');});
 
-Route::get('/toplist', [TopListController::class, 'index']);
+Route::get('/oldui', function () { return view('hello');});
 
-Route::get('/home', function () {
+Route::get('/hello', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -21,6 +20,20 @@ Route::get('/home', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('/api/topusers', [TopListController::class, 'getData']);
+Route::get('/toplist', function () {
+    return Inertia::render('TopList');
+})->name('toplist');
+
+Route::get('/', function () {
+    return Inertia::render('Hello', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+})->name('hello');
 
 Route::get('/plinko', function () {
     return Inertia::render('Plinko');
@@ -53,10 +66,6 @@ Route::get('/stargame', function () {
 Route::get('/profil', function () {
     return redirect()->away('/profile');
 })->name('profile');
-
-Route::get('/toplista', function () {
-    return redirect()->away('/toplist');
-})->name('toplist');
 
 Route::get('/tortenet', function () {
     return redirect()->away('/history');
