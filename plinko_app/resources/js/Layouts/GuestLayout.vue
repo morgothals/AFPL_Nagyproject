@@ -37,6 +37,10 @@ const showingNavigationDropdown = ref(false);
                                     :active="route().current('toplist')">
                                     Ranglista
                                 </NavLink>
+                                <NavLink :href="route('history')"
+                                    :active="route().current('history')">
+                                    A játék története
+                                </NavLink>
                             </div>
                         </div>
 
@@ -72,11 +76,7 @@ const showingNavigationDropdown = ref(false);
                     block: showingNavigationDropdown,
                     hidden: !showingNavigationDropdown,
                 }" class="sm:hidden">
-                    <div class="space-y-1 pb-3 pt-2">
-                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
-                        </ResponsiveNavLink>
-                    </div>
+
 
                     <!-- Responsive Settings Options -->
                     <div class="border-t border-gray-200 pb-1 pt-4 dark:border-gray-600">
@@ -88,11 +88,17 @@ const showingNavigationDropdown = ref(false);
                         </div>
 
                         <div class="mt-3 space-y-1">
-                            <ResponsiveNavLink :href="route('profile.edit')">
-                                Profile
+                            <ResponsiveNavLink :href="route('login')">
+                                Bejelentkezés
                             </ResponsiveNavLink>
-                            <ResponsiveNavLink :href="route('logout')" method="post" as="button">
-                                Log Out
+                            <ResponsiveNavLink :href="route('register')">
+                                Regisztráció
+                            </ResponsiveNavLink>
+                            <ResponsiveNavLink :href="route('toplist')">
+                                Ranglista
+                            </ResponsiveNavLink>
+                            <ResponsiveNavLink :href="route('history')">
+                                A játék története
                             </ResponsiveNavLink>
                         </div>
                     </div>
