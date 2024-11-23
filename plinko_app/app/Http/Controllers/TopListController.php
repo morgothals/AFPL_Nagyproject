@@ -12,4 +12,11 @@ class TopListController extends Controller
         $users = User::orderBy('balance', 'desc')->get();
         return view('toplist', compact('users'));
     }
+    public function getData()
+    {
+        $users = User::orderBy('balance', 'desc')->get();
+
+        return response()->json([
+            'topusers' => $users, ]);
+    }
 }
