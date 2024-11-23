@@ -8,7 +8,9 @@ use Inertia\Inertia;
 
 
 
-Route::get('/history', function () { return view('history');});
+Route::get('/history', function () {
+    return Inertia::render('History');
+})->name('history');
 
 Route::get('/oldui', function () { return view('hello');});
 
@@ -66,11 +68,5 @@ Route::get('/stargame', function () {
 Route::get('/profil', function () {
     return redirect()->away('/profile');
 })->name('profile');
-
-Route::get('/tortenet', function () {
-    return redirect()->away('/history');
-})->name('history');
-
-
 
 require __DIR__.'/auth.php';
