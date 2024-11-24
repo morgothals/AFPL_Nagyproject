@@ -23,22 +23,25 @@ const showingNavigationDropdown = ref(false);
                             <!-- Logo -->
                             <div class="flex shrink-0 items-center">
                                 <Link :href="route('dashboard')">
-                                    <ApplicationLogo
-                                        class="block w-auto fill-current text-gray-800 dark:text-gray-200"
-                                    />
+                                <ApplicationLogo class="block w-auto fill-current text-gray-800 dark:text-gray-200" />
                                 </Link>
                             </div>
 
                             <!-- Navigation Links -->
-                            <div
-                                class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex"
-                            >
-                                <NavLink
-                                    :href="route('dashboard')"
-                                    :active="route().current('dashboard')"
-                                >
-                                    Plinko
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('toplist')"
+                                    :active="route().current('toplist')">
+                                    Ranglista
                                 </NavLink>
+                                <NavLink :href="route('history')"
+                                    :active="route().current('history')">
+                                    A játék története
+                                </NavLink>
+                                <NavLink :href="route('startgame')"
+                                    :active="route().current('startgame')">
+                                    A játék indítása
+                                </NavLink>
+
                             </div>
                         </div>
 
@@ -141,10 +144,19 @@ const showingNavigationDropdown = ref(false);
                 >
                     <div class="space-y-1 pb-3 pt-2">
                         <ResponsiveNavLink
-                            :href="route('dashboard')"
-                            :active="route().current('dashboard')"
-                        >
-                            Dashboard
+                            :href="route('toplist')"
+                            :active="route().current('toplist')">
+                            Ranglista
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            :href="route('history')"
+                            :active="route().current('history')">
+                            A játék története
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            :href="route('startgame')"
+                            :active="route().current('startgame')">
+                            A játék indítása
                         </ResponsiveNavLink>
                     </div>
 

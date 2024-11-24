@@ -5,8 +5,20 @@ use App\Http\Controllers\TopListController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
 
+Route::get('/api/auth/status', function (Request $request) {
+    if (auth()->check()) {
+        return response()->json([
+            'authenticated' => true,
+            'user' => auth()->user(),
+        ]);
+    }
 
+    return response()->json([
+        'authenticated' => false,
+    ]);
+});
 
 Route::get('/history', function () {
     return Inertia::render('History');
@@ -24,6 +36,8 @@ Route::get('/hello', function () {
 });
 
 Route::get('/api/topusers', [TopListController::class, 'getData']);
+
+
 Route::get('/toplist', function () {
     return Inertia::render('TopList');
 })->name('toplist');
