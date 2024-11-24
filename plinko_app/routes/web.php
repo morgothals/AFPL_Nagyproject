@@ -7,24 +7,21 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 
+Route::get('/api/topusers', [TopListController::class, 'getData']);
+
 Route::get('/api/auth/status', function (Request $request) {
     if (auth()->check()) {
         return response()->json([
             'authenticated' => true,
-            'user' => auth()->user(),
-        ]);
-    }
-
+            'user' => auth()->user(),]);}
     return response()->json([
         'authenticated' => false,
-    ]);
-});
+    ]);});
 
 Route::get('/history', function () {
     return Inertia::render('History');
 })->name('history');
 
-Route::get('/oldui', function () { return view('hello');});
 
 Route::get('/hello', function () {
     return Inertia::render('Welcome', [
@@ -35,14 +32,14 @@ Route::get('/hello', function () {
     ]);
 });
 
-Route::get('/api/topusers', [TopListController::class, 'getData']);
-
 
 Route::get('/toplist', function () {
     return Inertia::render('TopList');
 })->name('toplist');
 
 Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect()->route('dashboard');}
     return Inertia::render('Hello', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -75,7 +72,7 @@ Route::get('/login', function () {
 })->name('login');
 
 //játék indítása oldal
-Route::get('/stargame', function () {
+Route::get('/startgame', function () {
     return redirect()->away('/plinko');
 })->name('startgame');
 

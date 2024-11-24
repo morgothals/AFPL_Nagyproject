@@ -6,7 +6,7 @@ import { Head } from '@inertiajs/vue3';
 
 <template>
 
-  <Head title="Plinko" />
+  <Head title="Történet" />
   <div>
     <div v-if="isLoading">
     </div>

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import logo from '@/../images/beer.png'; // Győződj meg róla, hogy az útvonal helyes!
+import logo from '@/../images/beer.png'; 
 
 export default {
   name: "AppLogo",
