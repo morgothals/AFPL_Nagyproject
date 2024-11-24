@@ -7,7 +7,7 @@ import axios from 'axios';
 
 <template>
 
-  <Head title="Plinko" />
+  <Head title="Ranglista" />
   <div>
     <div v-if="isLoading">
     </div>
@@ -30,7 +30,7 @@ import axios from 'axios';
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(user, index) in users" :key="user.id">
+                <tr v-for="(user, index) in users" :key="user.id" :class="{ 'highlight-row': index === 0 }">
                   <td>{{ index + 1 }}</td>
                   <td>{{ user.name }}</td>
                   <td>{{ formatCurrency(user.balance, 'HUF') }}</td>
@@ -47,7 +47,12 @@ import axios from 'axios';
 
 </template>
 
-
+<style scoped>
+.highlight-row {
+  background-color: #f0f8ff; 
+  font-weight: bold; 
+}
+</style>
 <script>
 export default {
   name: 'App',
@@ -79,9 +84,9 @@ export default {
     }
   },
   mounted() {
-    axios.get('/api/topusers') // Kérés a PHP API-hoz
+    axios.get('/api/topusers') 
       .then(response => {
-        this.users = response.data.topusers; // A válaszból átvesszük a tömböt
+        this.users = response.data.topusers; 
       })
       .catch(error => {
         console.log('Error fetching data:', error);
