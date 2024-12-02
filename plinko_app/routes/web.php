@@ -1,18 +1,29 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PlinkoController;
+use App\Http\Controllers\TopListController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
 
-Route::get('/', function () { return view('hello');});
+Route::get('/api/topusers', [TopListController::class, 'getData']);
 
-Route::get('/history', function () { return view('history');});
+Route::get('/api/auth/status', function (Request $request) {
+    if (auth()->check()) {
+        return response()->json([
+            'authenticated' => true,
+            'user' => auth()->user(),]);}
+    return response()->json([
+        'authenticated' => false,
+    ]);});
 
-Route::get('/toplist', function () { return view('toplist');});
+Route::get('/history', function () {
+    return Inertia::render('History');
+})->name('history');
 
-Route::get('/home', function () {
+
+Route::get('/hello', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -20,6 +31,22 @@ Route::get('/home', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+
+Route::get('/toplist', function () {
+    return Inertia::render('TopList');
+})->name('toplist');
+
+Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect()->route('dashboard');}
+    return Inertia::render('Hello', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+})->name('hello');
 
 Route::get('/plinko', function () {
     return Inertia::render('Plinko');
@@ -45,22 +72,12 @@ Route::get('/login', function () {
 })->name('login');
 
 //játék indítása oldal
-Route::get('/stargame', function () {
+Route::get('/startgame', function () {
     return redirect()->away('/plinko');
 })->name('startgame');
 
 Route::get('/profil', function () {
     return redirect()->away('/profile');
 })->name('profile');
-
-Route::get('/toplista', function () {
-    return redirect()->away('/toplist');
-})->name('toplist');
-
-Route::get('/tortenet', function () {
-    return redirect()->away('/history');
-})->name('history');
-
-
 
 require __DIR__.'/auth.php';

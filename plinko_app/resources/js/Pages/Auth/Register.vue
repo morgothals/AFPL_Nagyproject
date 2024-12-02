@@ -23,7 +23,11 @@ const submit = () => {
 <template>
     <GuestLayout>
         <Head title="Regisztráció" />
-
+        <template #header>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
+                Kérlek Add meg az adataidat:
+            </h2>
+        </template>
         <form @submit.prevent="submit">
             <div>
                 <InputLabel for="name" value="Felhasználónév" />
