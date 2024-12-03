@@ -1,6 +1,6 @@
 <template>
     <div class="plinko-game">
-        <h1>Plinko Játék</h1>
+        <!--  <h1>Plinko Játék</h1> -->
         <div class="balance">
             Egyenleg: {{ balance }} Ft
         </div>
@@ -16,8 +16,8 @@
                 <option value="high">Magas</option>
             </select>
 
-            <label for="rows">Sorok száma:</label>
-            <input type="number" v-model.number="rows" min="8" max="16" />
+            <!--    <label for="rows">Sorok száma:</label>
+            <input type="number" v-model.number="rows" min="8" max="16" /> -->
 
             <button @click="startGame">Bet</button>
         </div>
@@ -52,7 +52,7 @@ export default {
             multipliers: [],
             multiplierAreas: [],
             slotLimiters: [],
-            slots:8,
+            slots: 8,
             slotwidth: 10,
             pegColumns: 10,
         };
@@ -84,7 +84,7 @@ export default {
             // Inicializáljuk a Matter.js motort és a renderelést
             const { Engine, Render, World, Bodies, Events } = Matter;
 
-             this.engine = Engine.create();
+            this.engine = Engine.create();
             this.world = this.engine.world;
 
             const canvas = this.$refs.plinkoCanvas;
@@ -103,9 +103,9 @@ export default {
 
             // Piramis létrehozása
             this.pegColumns = this.rows;
-            const pegRadius = 8; // A körök sugara
+            const pegRadius = 10; // A körök sugara
             const pegRows = this.rows; // A sorok száma
-            const pegSpacingX = canvas.width / (pegRows + 2); // Vízszintes távolság a körök között
+            const pegSpacingX = canvas.width / (pegRows + 2)-15; // Vízszintes távolság a körök között
             const pegSpacingY = (canvas.height - 150) / pegRows; // Függőleges távolság a sorok között
 
 
@@ -161,7 +161,7 @@ export default {
                 canvas.height,
                 {
                     isStatic: true,
-                    render: { fillStyle: '#fff' }
+                   // render: { fillStyle: '#fff' }
                 }
             );
             World.add(this.world, [leftWall, rightWall]);
@@ -221,24 +221,24 @@ export default {
 
 
 
-     /*       // Kirajzoljuk a szorzókat szövegként
-            const context = this.render.context;
+            /*       // Kirajzoljuk a szorzókat szövegként
+                   const context = this.render.context;
 
-            this.render.options.afterRender = () => {
-                console.log("afterRender fut");
-                context.font = '32px Arial';
-                context.fillStyle = '#fff';
-                for (let i = 0; i < slots; i++) {
-                    const x = i * slotWidth + slotWidth / 2;
+                   this.render.options.afterRender = () => {
+                       console.log("afterRender fut");
+                       context.font = '32px Arial';
+                       context.fillStyle = '#fff';
+                       for (let i = 0; i < slots; i++) {
+                           const x = i * slotWidth + slotWidth / 2;
 
-                    const text = `${this.multipliers[i]}x`;
-                    context.fillText(
-                        text,
-                        x - context.measureText(text).width / 2,
-                        canvas.height - 40
-                    );
-                }
-            };*/
+                           const text = `${this.multipliers[i]}x`;
+                           context.fillText(
+                               text,
+                               x - context.measureText(text).width / 2,
+                               canvas.height - 40
+                           );
+                       }
+                   };*/
             const slots = this.slots;
             const slotWidth = this.slotWidth;
             // Eseménykezelő az afterRender eseményhez
@@ -249,7 +249,7 @@ export default {
                 context.fillStyle = '#fff';
 
                 for (let i = 0; i < slots; i++) {
-                    const x = i * slotWidth ;
+                    const x = i * slotWidth;
                     const text = `${this.multipliers[i]}x`;
                     context.fillText(
                         text,
@@ -260,6 +260,29 @@ export default {
             });
         },
 
+
+        updateBalanceOnServer(newBalance) {
+            axios.post('api/user/update-balance', {
+                balance: newBalance
+            })
+                .then(() => {
+                    console.log('Balance successfully updated on the server.');
+                })
+                .catch(error => {
+                    console.error('Error updating balance on server:', error);
+                });
+        },
+
+        mounted() {
+            axios.get('api/user/balance') // Hívás az aktuális felhasználó egyenlegéhez
+                .then(response => {
+                    this.balance = response.data.balance; // Beállítja a lokális `balance` változót
+                })
+                .catch(error => {
+                    console.error('Error fetching balance:', error);
+                });
+        },
+
         createMultiplierAreas() {
             const { Engine, Render, World, Bodies, Events } = Matter;
             const canvas = this.$refs.plinkoCanvas;
@@ -267,7 +290,7 @@ export default {
             const slots = this.slots;
             this.slotWidth = canvas.width / slots;
             const slotWidth = this.slotWidth
-           // this.multipliers = this.getMultipliers(slots);
+            // this.multipliers = this.getMultipliers(slots);
             this.multipliers = this.getExponentialMultipliers(slots);
 
             for (let i = 0; i <= slots; i++) {
@@ -329,12 +352,14 @@ export default {
 
             const { Bodies, World } = Matter;
             const canvas = this.$refs.plinkoCanvas;
-
+            const randomNumber = Math.random()*40;
+            let elojel = Math.random() < 0.5 ? -1 : 1;
+            const ballRandomizer = randomNumber * elojel;
 
             // Labda létrehozása a vásznon kívül
-            const ball = Matter.Bodies.circle(canvas.width / 2, 10, 10, {
-                restitution: 0.5,
-                mass: 2.2,
+            const ball = Matter.Bodies.circle(canvas.width / 2 + ballRandomizer, 6, 6, {
+                restitution:0.1,
+                mass: 2,
                 label: 'Ball',
                 isStatic: false,
                 render: { fillStyle: '#FF0000' },
@@ -351,6 +376,8 @@ export default {
             this.balance += payout;
             this.payout = payout;
             this.gameResult = `A labda ${multiplier}x szorzóba esett!`;
+            console.log('Balance:', this.balance);
+            this.updateBalanceOnServer(this.balance);
 
             // Eltávolítjuk a labdát a világból
             Matter.World.remove(this.world, ball);
@@ -404,7 +431,7 @@ export default {
 
                 // Szorzó kiszámítása a baseline alapján
                 const multiplier = parseFloat(
-                    Math.min(maxMultiplier, baseline + factor-0.7).toFixed(2)
+                    Math.min(maxMultiplier, baseline + factor - 0.7).toFixed(2)
                 );
 
                 multipliers.push(multiplier);

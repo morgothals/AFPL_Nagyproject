@@ -18,6 +18,10 @@ Route::get('/api/auth/status', function (Request $request) {
         'authenticated' => false,
     ]);});
 
+
+Route::post('/api/user/update-balance', [UserController::class, 'updateBalance']);
+
+
 Route::get('/history', function () {
     return Inertia::render('History');
 })->name('history');
