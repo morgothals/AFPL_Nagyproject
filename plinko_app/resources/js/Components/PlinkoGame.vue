@@ -1,9 +1,9 @@
 <template>
-  <div class="plinko-game">
-    <h1>Plinko Játék</h1>
-    <div class="balance">
-      Egyenleg: {{ balance }} Ft
-    </div>
+    <div class="plinko-game">
+        <!--  <h1>Plinko Játék</h1> -->
+        <div class="balance">
+            Egyenleg: {{ balance }} Ft
+        </div>
 
     <div class="controls">
       <label for="betAmount">Tét összege:</label>
@@ -37,30 +37,35 @@
 import Matter from 'matter-js';
 
 export default {
-  name: 'PlinkoGame',
-  data() {
-    return {
-      balance: 1000,
-      betAmount: 10,
-      riskLevel: 'low',
-      rows: 8,
-      gameResult: null,
-      payout: 0,
-      engine: null,
-      render: null,
-      world: null,
-      multipliers: [],
-    };
-  },
-  mounted() {
-    this.initPlinko();
-  },
-  methods: {
-    startGame() {
-      if (this.betAmount <= 0) {
-        alert('A tétnek nagyobbnak kell lennie, mint 0!');
-        return;
-      }
+    name: 'PlinkoGame',
+    data() {
+        return {
+            balance: 1000,
+            betAmount: 10,
+            riskLevel: 'low',
+            rows: 8,
+            gameResult: null,
+            payout: 0,
+            engine: null,
+            render: null,
+            world: null,
+            multipliers: [],
+            multiplierAreas: [],
+            slotLimiters: [],
+            slots: 8,
+            slotwidth: 10,
+            pegColumns: 10,
+        };
+    },
+    mounted() {
+        this.initPlinko();
+    },
+    methods: {
+        startGame() {
+            if (this.betAmount <= 0) {
+                alert('A tétnek nagyobbnak kell lennie, mint 0!');
+                return;
+            }
 
       if (this.betAmount > this.balance) {
         alert('Nincs elég egyenleged a fogadáshoz!');
@@ -79,8 +84,8 @@ export default {
       // Inicializáljuk a Matter.js motort és a renderelést
       const { Engine, Render, World, Bodies, Events } = Matter;
 
-      this.engine = Engine.create();
-      this.world = this.engine.world;
+            this.engine = Engine.create();
+            this.world = this.engine.world;
 
       const canvas = this.$refs.plinkoCanvas;
 
@@ -145,10 +150,109 @@ export default {
       );
       World.add(this.world, [leftWall, rightWall]);
 
-      // Szorzók és rekeszek létrehozása
-      const slots = pegColumns + 1;
-      const slotWidth = canvas.width / slots;
-      this.multipliers = this.getMultipliers(slots);
+            // Szorzók és rekeszek létrehozása
+
+
+
+            this.createMultiplierAreas();
+
+
+
+
+            /*      // A szorzók szövegének kirajzolása
+                  const szorzo_label = this.render.context; // A canvas rajzolási kontextusa
+                  this.render.options.afterRender = () => {
+                      szorzo_label.font = '16px Arial'; // Betűstílus és méret
+                      szorzo_label.fillStyle = '#fff'; // Szöveg színe (fekete)
+                      szorzo_label.textAlign = 'center'; // Szöveg középre igazítása
+
+                      for (let i = 0; i < slots; i++) {
+                          const x = i * slotWidth + slotWidth / 2; // Szorzó pozíciója középen
+                          const y = canvas.height - 50; // Szorzó szövegének magassága
+                          const multiplier = this.multipliers[i]; // Szorzó érték
+                          szorzo_label.fillText(`${multiplier}x`, x, y); // Szöveg kirajzolása
+                      }
+                  };
+      */
+            // Események kezelése
+            Events.on(this.engine, 'collisionStart', (event) => {
+                event.pairs.forEach((pair) => {
+                    const { bodyA, bodyB } = pair;
+
+                    if (!bodyA || !bodyB) {
+                        return; // Ha bármelyik test nem létezik, kilépünk
+                    }
+
+                    // Ellenőrizzük a testek címkéit
+                    if ((bodyA.label === 'Multiplier' && bodyB.label === 'Ball') ||
+                        (bodyB.label === 'Multiplier' && bodyA.label === 'Ball')) {
+                        const multiplierBody = bodyA.label === 'Multiplier' ? bodyA : bodyB;
+                        const ballBody = bodyA.label === 'Ball' ? bodyA : bodyB;
+                        this.handleBallLanding(ballBody, multiplierBody.multiplier);
+                    }
+                });
+            });
+
+
+
+            Matter.Render.run(this.render);
+            var runner = Matter.Runner.create();
+
+            // run the engine
+            Matter.Runner.run(runner, this.engine);
+            //Ezek már így futnak
+
+
+
+
+            /*       // Kirajzoljuk a szorzókat szövegként
+                   const context = this.render.context;
+
+                   this.render.options.afterRender = () => {
+                       console.log("afterRender fut");
+                       context.font = '32px Arial';
+                       context.fillStyle = '#fff';
+                       for (let i = 0; i < slots; i++) {
+                           const x = i * slotWidth + slotWidth / 2;
+
+                           const text = `${this.multipliers[i]}x`;
+                           context.fillText(
+                               text,
+                               x - context.measureText(text).width / 2,
+                               canvas.height - 40
+                           );
+                       }
+                   };*/
+            const slots = this.slots;
+            const slotWidth = this.slotWidth;
+            // Eseménykezelő az afterRender eseményhez
+            Events.on(this.render, 'afterRender', () => {
+                //console.log("afterRender fut");
+                const context = this.render.context;
+                context.font = '16px Arial';
+                context.fillStyle = '#fff';
+
+                for (let i = 0; i < slots; i++) {
+                    const x = i * slotWidth;
+                    const text = `${this.multipliers[i]}x`;
+                    context.fillText(
+                        text,
+                        x - context.measureText(text).width / 2,
+                        canvas.height - 20
+                    );
+                }
+            });
+        },
+
+        createMultiplierAreas() {
+            const { Engine, Render, World, Bodies, Events } = Matter;
+            const canvas = this.$refs.plinkoCanvas;
+            this.slots = this.pegColumns + 2;
+            const slots = this.slots;
+            this.slotWidth = canvas.width / slots;
+            const slotWidth = this.slotWidth
+            // this.multipliers = this.getMultipliers(slots);
+            this.multipliers = this.getExponentialMultipliers(slots);
 
       for (let i = 0; i <= slots; i++) {
         const x = i * slotWidth;
@@ -232,10 +336,11 @@ export default {
 
       ball.isProcessed = true;
 
-      const payout = this.betAmount * multiplier;
-      this.balance += payout;
-      this.payout = payout;
-      this.gameResult = `A labda ${multiplier}x szorzóba esett!`;
+            const payout = this.betAmount * multiplier;
+            this.balance += payout;
+            this.payout = payout;
+            this.gameResult = `A labda ${multiplier}x szorzóba esett!`;
+            console.log('Balance:', this.balance);
 
       // Eltávolítjuk a labdát a világból
       Matter.World.remove(this.world, ball);
@@ -256,17 +361,48 @@ export default {
       const middle = Math.floor(slots / 2);
       const multipliers = [];
 
-      for (let i = 0; i < slots; i++) {
-        const distance = Math.abs(i - middle);
-        const factor = 1 - distance / middle;
-        const multiplier = parseFloat(
-          (min + (max - min) * (1 - factor)).toFixed(2)
-        );
-        multipliers.push(multiplier);
-      }
-      return multipliers;
+            for (let i = 0; i < slots; i++) {
+                const distance = Math.abs(i - middle);
+                const factor = distance / middle;
+                const multiplier = parseFloat(
+                    (min + (max - min) * factor).toFixed(2)
+                );
+                multipliers.push(multiplier);
+            }
+            return multipliers;
+        },
+
+        getExponentialMultipliers(slots) {
+            // Középső érték meghatározása a kockázati szint alapján
+            const baseline = this.riskLevel === 'low' ? 0.5 :
+                this.riskLevel === 'medium' ? 0.75 : 0;
+
+            // Exponenciális növekedési alap
+            const base = this.riskLevel === 'low' ? 1.1 :
+                this.riskLevel === 'medium' ? 1.5 : 2;
+
+            // Maximális szorzó érték
+            const maxMultiplier = this.riskLevel === 'low' ? 3 :
+                this.riskLevel === 'medium' ? 8 : 15;
+
+            const middle = Math.floor(slots / 2); // Középpont
+            const multipliers = [];
+
+            for (let i = 0; i < slots; i++) {
+                const distanceFromMiddle = Math.abs(i - middle); // Távolság a középponttól
+                const factor = Math.pow(base, distanceFromMiddle); // Exponenciális növekedés
+
+                // Szorzó kiszámítása a baseline alapján
+                const multiplier = parseFloat(
+                    Math.min(maxMultiplier, baseline + factor - 0.7).toFixed(2)
+                );
+
+                multipliers.push(multiplier);
+            }
+
+            return multipliers;
+        }
     },
-  },
 };
 </script>
 
