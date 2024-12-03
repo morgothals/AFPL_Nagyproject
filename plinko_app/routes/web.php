@@ -18,7 +18,7 @@ Route::get('/api/auth/status', function (Request $request) {
         'authenticated' => false,
     ]);});
 
-Route::get('/history', function () {
+Route::get('/about', function () {
     return Inertia::render('History');
 })->name('history');
 
@@ -50,7 +50,7 @@ Route::get('/', function () {
 
 Route::get('/plinko', function () {
     return Inertia::render('Plinko');
-})->name('plinko');
+})->middleware(['auth', 'verified'])->name('plinko');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
