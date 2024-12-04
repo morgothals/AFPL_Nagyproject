@@ -151,11 +151,11 @@ export default {
             World.add(this.world, ground);
 
             // Falak létrehozása
-            const leftWall = Bodies.rectangle(0, canvas.height / 2, 10, canvas.height, {
+            const leftWall = Bodies.rectangle(30, canvas.height / 2, 10, canvas.height, {
                 isStatic: true,
             });
             const rightWall = Bodies.rectangle(
-                canvas.width,
+                canvas.width-30,
                 canvas.height / 2,
                 10,
                 canvas.height,
@@ -248,8 +248,8 @@ export default {
                 context.font = '16px Arial';
                 context.fillStyle = '#fff';
 
-                for (let i = 0; i < slots; i++) {
-                    const x = i * slotWidth;
+                for (let i = 0; i < slots-1; i++) {
+                    const x = i * slotWidth + slotWidth;
                     const text = `${this.multipliers[i]}x`;
                     context.fillText(
                         text,
@@ -306,8 +306,8 @@ export default {
             }
 
             // Szorzó értékek megjelenítése
-            for (let i = 0; i < slots + 1; i++) {
-                const x = i * slotWidth;
+            for (let i = 0; i < slots-1 ; i++) {
+                const x = i * slotWidth+ slotWidth;
                 const multiplierArea = Matter.Bodies.rectangle(
                     x,
                     canvas.height - 60,
@@ -319,7 +319,7 @@ export default {
                         label: 'Multiplier',
                         render: {
                             fillStyle: 'transparent',
-                            //fillStyle: '#fff',
+                            fillStyle: '#fff',
                         },
                     }
                 );
@@ -417,7 +417,7 @@ export default {
                 this.riskLevel === 'medium' ? 0.75 : 0;
 
             // Exponenciális növekedési alap
-            const base = this.riskLevel === 'low' ? 1.1 :
+            const base = this.riskLevel === 'low' ? 1.08 :
                 this.riskLevel === 'medium' ? 1.5 : 2;
 
             // Maximális szorzó érték
@@ -425,7 +425,7 @@ export default {
                 this.riskLevel === 'medium' ? 8 : 15;
 
             const middle = Math.floor(slots / 2); // Középpont
-            const multipliers = [];
+            let multipliers = [];
 
             for (let i = 0; i < slots; i++) {
                 const distanceFromMiddle = Math.abs(i - middle); // Távolság a középponttól
@@ -438,6 +438,14 @@ export default {
 
                 multipliers.push(multiplier);
             }
+            if (slots == 10 && this.riskLevel == 'low')
+                multipliers = [1, 0.8, 0.9, 1.5, 9, 1.5, 0.9, 0.9, 1];
+
+            if (slots == 10 && this.riskLevel == 'medium')
+                multipliers = [0.8, 0.5, 0.7, 3, 20, 3, 0.7, 0.5, 0.8];
+
+            if (slots == 10 && this.riskLevel == 'high')
+                multipliers = [1, 0, 0.6, 10, 100, 10, 0.6, 0, 1];
 
             return multipliers;
         }
