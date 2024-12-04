@@ -36,3 +36,11 @@
 | TC-006              | Kockázati szint	| Állítható a kockázat	| Sikeres | A rekeszek értéke megfelelően változik	|
 | TC-007              | Bet gomb	| Elindít egy labdát	| Sikeres | A bet gomb megnyomására leesik egy labda	|
 | TC-008              | A rekesz beszorozza az értéket	| A labda értéke a rekesz szorzója alapján változik	| Sikeres | Az összeghez hozzáadja a labda értékét	|
+| TC-009              | Több labda	| Egyszerre több labdát is el lehet indítani	| Sikeres | Többszöri megnyomás esetén több labda esik le	|
+| TC-010              | Adatbázisban frissül az összeg	| A ranglistán a felhasználó összege változik	| Sikeres | A nyeremény mentésre kerül	|
+| TC-011              | Regisztrációnál nem adtam e-mailt	| Kéri hogy adjak meg e-mailt	| Sikeres | Kéri az adat megadását	|
+| TC-012              | Regisztrációnál nem adtam meg felhasználót	| Kéri hogy adjak meg felhasználót	| Sikeres | Kéri az adat megadását	|
+| TC-013              | Regisztrációnál nem adtam meg jelszót	| Kéri hogy adjak meg jelszót	| Sikeres | Kéri az adat megadását	|
+| TC-014              | Regisztrációnál nem ismételtem meg a jelszót	| Kéri hogy adjak meg a jelszót ismét	| Sikeres | Kéri az adat megadását	|
+| TC-015              | Regisztrációnál hiányzik a '@'	| Helyes e-mailt kér	| Sikeres | Kiír hibaüzenetet	|
+| TC-016              | Jelszó nem megfelelő	| Kéri hogy adjak meg erősebb jelszót	| Sikeres | Hibaüzenetet ír ki	|
