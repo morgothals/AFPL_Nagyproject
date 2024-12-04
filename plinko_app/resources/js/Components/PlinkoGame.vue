@@ -276,8 +276,9 @@ export default {
         mounted() {
             axios.get('api/user/balance') // Hívás az aktuális felhasználó egyenlegéhez
                 .then(response => {
-                    this.balance = response.data.balance; // Beállítja a lokális `balance` változót
-                    console.log('Balance update. ' + this.balance + ' ' + response.data.balance);
+                    this.balance = parseFloat(response.data.user.balance); // Beállítja a lokális `balance` változót
+                    // console.log(response.data)
+                    // console.log('Balance update. ' + this.balance + ' ' + response.data.user.balance);
                 })
                 .catch(error => {
                     console.error('Error fetching balance:', error);
