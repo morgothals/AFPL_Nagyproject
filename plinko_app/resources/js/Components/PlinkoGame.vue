@@ -2,7 +2,7 @@
     <div class="plinko-game">
         <!--  <h1>Plinko Játék</h1> -->
         <div class="balance">
-            Egyenleg: {{ balance }} Ft
+            Egyenleg: {{ Math.round(balance) }} Ft
         </div>
 
         <div class="controls">
@@ -28,7 +28,7 @@
 
         <div class="result" v-if="gameResult">
             <h2>{{ gameResult }}</h2>
-            <p>Nyeremény: {{ payout }} Ft</p>
+            <p>Nyeremény: {{ Math.round(payout) }} Ft</p>
         </div>
     </div>
 </template>
@@ -105,7 +105,7 @@ export default {
             this.pegColumns = this.rows;
             const pegRadius = 10; // A körök sugara
             const pegRows = this.rows; // A sorok száma
-            const pegSpacingX = canvas.width / (pegRows + 2)-15; // Vízszintes távolság a körök között
+            const pegSpacingX = canvas.width / (pegRows + 2) - 15; // Vízszintes távolság a körök között
             const pegSpacingY = (canvas.height - 150) / pegRows; // Függőleges távolság a sorok között
 
 
@@ -151,17 +151,17 @@ export default {
             World.add(this.world, ground);
 
             // Falak létrehozása
-            const leftWall = Bodies.rectangle(0, canvas.height / 2, 10, canvas.height, {
+            const leftWall = Bodies.rectangle(30, canvas.height / 2, 10, canvas.height, {
                 isStatic: true,
             });
             const rightWall = Bodies.rectangle(
-                canvas.width,
+                canvas.width-30,
                 canvas.height / 2,
                 10,
                 canvas.height,
                 {
                     isStatic: true,
-                   // render: { fillStyle: '#fff' }
+                    // render: { fillStyle: '#fff' }
                 }
             );
             World.add(this.world, [leftWall, rightWall]);
@@ -219,7 +219,7 @@ export default {
             //Ezek már így futnak
 
 
-
+            this.mounted();
 
             /*       // Kirajzoljuk a szorzókat szövegként
                    const context = this.render.context;
@@ -248,8 +248,8 @@ export default {
                 context.font = '16px Arial';
                 context.fillStyle = '#fff';
 
-                for (let i = 0; i < slots; i++) {
-                    const x = i * slotWidth;
+                for (let i = 0; i < slots-1; i++) {
+                    const x = i * slotWidth + slotWidth;
                     const text = `${this.multipliers[i]}x`;
                     context.fillText(
                         text,
@@ -276,7 +276,9 @@ export default {
         mounted() {
             axios.get('api/user/balance') // Hívás az aktuális felhasználó egyenlegéhez
                 .then(response => {
-                    this.balance = response.data.balance; // Beállítja a lokális `balance` változót
+                    this.balance = parseFloat(response.data.user.balance); // Beállítja a lokális `balance` változót
+                    // console.log(response.data)
+                    // console.log('Balance update. ' + this.balance + ' ' + response.data.user.balance);
                 })
                 .catch(error => {
                     console.error('Error fetching balance:', error);
@@ -304,8 +306,8 @@ export default {
             }
 
             // Szorzó értékek megjelenítése
-            for (let i = 0; i < slots + 1; i++) {
-                const x = i * slotWidth;
+            for (let i = 0; i < slots-1 ; i++) {
+                const x = i * slotWidth+ slotWidth;
                 const multiplierArea = Matter.Bodies.rectangle(
                     x,
                     canvas.height - 60,
@@ -317,7 +319,7 @@ export default {
                         label: 'Multiplier',
                         render: {
                             fillStyle: 'transparent',
-                            //fillStyle: '#fff',
+                            fillStyle: '#fff',
                         },
                     }
                 );
@@ -352,13 +354,13 @@ export default {
 
             const { Bodies, World } = Matter;
             const canvas = this.$refs.plinkoCanvas;
-            const randomNumber = Math.random()*40;
+            const randomNumber = Math.random() * 40;
             let elojel = Math.random() < 0.5 ? -1 : 1;
             const ballRandomizer = randomNumber * elojel;
 
             // Labda létrehozása a vásznon kívül
             const ball = Matter.Bodies.circle(canvas.width / 2 + ballRandomizer, 6, 6, {
-                restitution:0.1,
+                restitution: 0.1,
                 mass: 2,
                 label: 'Ball',
                 isStatic: false,
@@ -415,7 +417,7 @@ export default {
                 this.riskLevel === 'medium' ? 0.75 : 0;
 
             // Exponenciális növekedési alap
-            const base = this.riskLevel === 'low' ? 1.1 :
+            const base = this.riskLevel === 'low' ? 1.08 :
                 this.riskLevel === 'medium' ? 1.5 : 2;
 
             // Maximális szorzó érték
@@ -423,7 +425,7 @@ export default {
                 this.riskLevel === 'medium' ? 8 : 15;
 
             const middle = Math.floor(slots / 2); // Középpont
-            const multipliers = [];
+            let multipliers = [];
 
             for (let i = 0; i < slots; i++) {
                 const distanceFromMiddle = Math.abs(i - middle); // Távolság a középponttól
@@ -436,6 +438,14 @@ export default {
 
                 multipliers.push(multiplier);
             }
+            if (slots == 10 && this.riskLevel == 'low')
+                multipliers = [1, 0.8, 0.9, 1.5, 9, 1.5, 0.9, 0.9, 1];
+
+            if (slots == 10 && this.riskLevel == 'medium')
+                multipliers = [0.8, 0.5, 0.7, 3, 20, 3, 0.7, 0.5, 0.8];
+
+            if (slots == 10 && this.riskLevel == 'high')
+                multipliers = [1, 0, 0.6, 10, 100, 10, 0.6, 0, 1];
 
             return multipliers;
         }
