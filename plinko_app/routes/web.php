@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TopListController;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\TopListController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
@@ -18,6 +19,18 @@ Route::get('/api/auth/status', function (Request $request) {
         'authenticated' => false,
     ]);});
 
+
+Route::get('/api/user/balance', function (Request $request) {
+    if (auth()->check()) {
+        return response()->json([
+            'authenticated' => true,
+            'user'          => auth()->user(),
+        ]);
+    }
+    return response()->json([
+        'authenticated' => false,
+    ]);
+});
 
 Route::post('/api/user/update-balance', [UserController::class, 'updateBalance']);
 

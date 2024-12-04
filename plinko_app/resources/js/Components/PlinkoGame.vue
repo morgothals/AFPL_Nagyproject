@@ -2,7 +2,7 @@
     <div class="plinko-game">
         <!--  <h1>Plinko Játék</h1> -->
         <div class="balance">
-            Egyenleg: {{ balance }} Ft
+            Egyenleg: {{ Math.round(balance) }} Ft
         </div>
 
         <div class="controls">
@@ -28,7 +28,7 @@
 
         <div class="result" v-if="gameResult">
             <h2>{{ gameResult }}</h2>
-            <p>Nyeremény: {{ payout }} Ft</p>
+            <p>Nyeremény: {{ Math.round(payout) }} Ft</p>
         </div>
     </div>
 </template>
@@ -105,7 +105,7 @@ export default {
             this.pegColumns = this.rows;
             const pegRadius = 10; // A körök sugara
             const pegRows = this.rows; // A sorok száma
-            const pegSpacingX = canvas.width / (pegRows + 2)-15; // Vízszintes távolság a körök között
+            const pegSpacingX = canvas.width / (pegRows + 2) - 15; // Vízszintes távolság a körök között
             const pegSpacingY = (canvas.height - 150) / pegRows; // Függőleges távolság a sorok között
 
 
@@ -161,7 +161,7 @@ export default {
                 canvas.height,
                 {
                     isStatic: true,
-                   // render: { fillStyle: '#fff' }
+                    // render: { fillStyle: '#fff' }
                 }
             );
             World.add(this.world, [leftWall, rightWall]);
@@ -219,7 +219,7 @@ export default {
             //Ezek már így futnak
 
 
-
+            this.mounted();
 
             /*       // Kirajzoljuk a szorzókat szövegként
                    const context = this.render.context;
@@ -277,6 +277,7 @@ export default {
             axios.get('api/user/balance') // Hívás az aktuális felhasználó egyenlegéhez
                 .then(response => {
                     this.balance = response.data.balance; // Beállítja a lokális `balance` változót
+                    console.log('Balance update. ' + this.balance + ' ' + response.data.balance);
                 })
                 .catch(error => {
                     console.error('Error fetching balance:', error);
@@ -352,13 +353,13 @@ export default {
 
             const { Bodies, World } = Matter;
             const canvas = this.$refs.plinkoCanvas;
-            const randomNumber = Math.random()*40;
+            const randomNumber = Math.random() * 40;
             let elojel = Math.random() < 0.5 ? -1 : 1;
             const ballRandomizer = randomNumber * elojel;
 
             // Labda létrehozása a vásznon kívül
             const ball = Matter.Bodies.circle(canvas.width / 2 + ballRandomizer, 6, 6, {
-                restitution:0.1,
+                restitution: 0.1,
                 mass: 2,
                 label: 'Ball',
                 isStatic: false,
