@@ -33,13 +33,13 @@ const showingNavigationDropdown = ref(false);
                                     :active="route().current('register')">
                                     Regisztráció
                                 </NavLink>
+                                <NavLink :href="route('history')"
+                                    :active="route().current('history')">
+                                    A játék leírása
+                                </NavLink>
                                 <NavLink :href="route('toplist')"
                                     :active="route().current('toplist')">
                                     Ranglista
-                                </NavLink>
-                                <NavLink :href="route('history')"
-                                    :active="route().current('history')">
-                                    A játék története
                                 </NavLink>
                             </div>
                         </div>

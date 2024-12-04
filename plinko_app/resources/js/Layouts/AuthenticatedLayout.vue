@@ -29,13 +29,13 @@ const showingNavigationDropdown = ref(false);
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink :href="route('history')"
+                                    :active="route().current('history')">
+                                    A játék leírása
+                                </NavLink>
                                 <NavLink :href="route('toplist')"
                                     :active="route().current('toplist')">
                                     Ranglista
-                                </NavLink>
-                                <NavLink :href="route('history')"
-                                    :active="route().current('history')">
-                                    A játék története
                                 </NavLink>
                                 <NavLink :href="route('startgame')"
                                     :active="route().current('startgame')">
